@@ -260,6 +260,7 @@ nav .nav-logo {
   color: rgb(157, 157, 157);
 }
 
+/* Run Section */
 .run {
   max-width: 1200px;
   margin: 70px auto;
@@ -297,11 +298,133 @@ nav .nav-logo {
 .run-image img {
   width: 100%;
   border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Training Section */
+.training,
+.team {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+.training-details,
+.team-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+}
+
+.training-title,
+.team-title {
+  font-size: 40px;
+  color: rgb(210, 210, 210);
+}
+
+.training-description,
+.team-description {
+  color: rgb(157, 157, 157);
+}
+
+.training-images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.training-image:nth-child(2),
+.training-image:nth-child(4) {
+  grid-column: span 2;
+}
+
+.training-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.training-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.training-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.training-image:nth-child(1)::after {
+  background: rgba(80, 227, 200, 0.3);
+}
+
+.training-image:nth-child(2)::after {
+  background: rgba(238, 65, 65, 0.3);
+}
+
+.training-image:nth-child(5)::after {
+  background: rgba(30, 215, 49, 0.38);
+}
+
+.training-image:nth-child(6)::after {
+  background-color: rgba(88, 243, 243, 0.319);
+}
+
+/* Team section */
+.team-details {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.team-images {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  background-color: rgb(38, 38, 38);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.team-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.trainer-details {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.trainer-details h3 {
+  font-size: 22px;
+  color: rgb(236, 235, 235);
+}
+
+.trainer-details p {
+  font-size: 18px;
+  color: rgb(173, 172, 172);
 }
 @media screen and (max-width: 850px) {
   nav,
   .banner,
-  .run {
+  .run,
+  .training {
     padding: 15px 20px;
   }
   .nav-toggle {
@@ -415,6 +538,27 @@ nav .nav-logo {
   .run-image {
     width: 100%;
   }
+
+  .training-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .training-image:nth-child(2),
+  .training-image:nth-child(4) {
+    grid-column: span 1;
+  }
+
+  .trainer-details h3 {
+    font-size: 20px;
+    color: rgb(236, 235, 235);
+  }
+
+  .trainer-details p {
+    font-size: 16px;
+    color: rgb(173, 172, 172);
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -454,6 +598,16 @@ nav .nav-logo {
   .habit-cards {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .training-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-images {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .nav-toggle:checked ~ .nav-links {
@@ -474,9 +628,11 @@ nav .nav-logo {
 
 @media screen and (min-width: 851px) {
   nav,
-  .banner {
+  .banner,
+  .training {
     padding: 10px 20px;
   }
+
   .hamburger {
     display: none;
   }
